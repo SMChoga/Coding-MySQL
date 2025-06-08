@@ -4,136 +4,16 @@ FROM parks_and_recreation.employee_demographics;
 SELECT * 
 FROM parks_and_recreation.employee_salary;
 
-Remove the SQL additions by clicking on the top right icon (if SQL additions is visible)
-
-
-
-Open a new tab/window editor
-SELECT*
-FROM employee_demographics; 
-
-SELECT first_name, last_name, birth_date
-FROM parks_and_recreation.employee_demographics;
-
-OR
-
-SELECT first_name, 
-last_name, 
-birth_date,
-(age + 10)*10+10
-FROM parks_and_recreation.employee_demographics;
-#PENDAS 
-
 
 SELECT DISTINCT gender
 FROM parks_and_recreation.employee_demographics;
 
-Save - Click on the save icon
-
-
-
-SELECT*
-FROM employee_salary
-WHERE first_name = 'Leslie'
-;
-
-
-SELECT*
-FROM employee_salary
-WHERE salary > 50000
-;
-
-SELECT*
-FROM employee_demographics
-WHERE gender = 'Female'
-;
-
-SELECT*
-FROM employee_demographics
-WHERE birth_date > '1985-01-01'
-;
-
-
-SELECT*
-FROM employee_demographics
-WHERE birth_date > '1985-01-01'
-AND gender = 'male'
-;
-
-
-SELECT*
-FROM employee_demographics
-WHERE birth_date > '1985-01-01'
-OR gender = 'male'
-;
-
-
-SELECT*
-FROM employee_demographics
-WHERE (first_name = 'Leslie' AND age = 44) OR age > 55
-;
-#PENDAS 
-
-
-SELECT*
-FROM employee_demographics
-WHERE first_name LIKE 'Jer%'
-;
-
-
-SELECT*
-FROM employee_demographics
-WHERE first_name LIKE 'a__'
-;
-
-
-
-SELECT gender
-FROM employee_demographics
-GROUP BY gender
-;
-
-
-SELECT gender, AVG(age)
-FROM employee_demographics
-GROUP BY gender
-;
 
 
 SELECT gender, AVG(age), Max(age), MIN(age), COUNT(age)
 FROM employee_demographics
 GROUP BY gender
 ;
-
-
-SELECT*
-FROM employee_demographics
-ORDER BY first_name
-;
-
-
-SELECT*
-FROM employee_demographics
-ORDER BY gender, age
-;
-
-
-
-SELECT gender, AVG (age)
-FROM employee_demographics
-GROUP BY gender
-HAVING AVG (age) > 40
-;
-
-
-SELECT occupation, AVG (salary)
-FROM employee_salary
-WHERE occupation LIKE '%manager%'
-GROUP BY occupation
-;
-HAVING AVG (salary) > 50000
-;
-
 
 
 
@@ -144,64 +24,10 @@ limit 3
 ;
 
 
-SELECT*
-FROM employee_demographics
-ORDER BY age DESC
-limit 2, 1
-;
-
-
 SELECTgender, AVG(age) AS avg_age
 FROM employee_demographics
 GROUP BY gender
 HAVING avg_age > 40
-;
-
-
-
-SELECT*
-FROM employee_demographics
-INNER JOIN employee_salary
-    ON employee_demographics.employee_id = employee_salary.employee_id
-;
-
-SELECT*
-FROM employee_demographics AS dem
-INNER JOIN employee_salary AS sal
-    ON dem.employee_id = sal.employee_id
-;
-
-
-SELECT dem.employee_id, age, occupation
-FROM employee_demographics AS dem
-INNER JOIN employee_salary AS sal
-    ON dem.employee_id = sal.employee_id
-;
-
-
-SELECT *
-FROM employee_demographics AS dem
-LEFT JOIN employee_salary AS sal
-    ON dem.employee_id = sal.employee_id
-;
-
-
-SELECT *
-FROM employee_demographics AS dem
-RIGHT JOIN employee_salary AS sal
-    ON dem.employee_id = sal.employee_id
-;
-
-
-SELECT emp1.employee_id AS emp_santa,
-emp1.first_name AS first_name_santa,
-emp1.last_name AS last_name_santa,
-emp2.employee_id AS emp_name,
-emp2.first_name AS first_name_emp,
-emp2.last_name AS last_name_emp,
-FROM employee_salary emp1
-INNER JOIN employee_salary emp2
-     ON emp1.employee_id + 1 = emp2.employee_id
 ;
 
 
@@ -216,22 +42,6 @@ INNER JOIN parks_departments AS pd
 
 SELECT first_name, last_name
 FROM employee_demographics
-UNION
-SELECT first_name, last_name
-FROM employee_salary
-;
-
-
-SELECT first_name, last_name
-FROM employee_demographics
-UNION ALL
-SELECT first_name, last_name
-FROM employee_salary
-;
-
-
-SELECT first_name, last_name
-FROM employee_demographics
 WHERE age > 40 AND gender = 'Male'
 UNION
 SELECT first_name, last_name
@@ -241,36 +51,8 @@ UNION
 SELECT first_name, last_name
 FROM employee_salary
 WHERE salary > 70000
-;
-
 ORDER BY first_name, last_name
 ;
-
-
-
-SELECT first_name, UPPER (first_name)
-FROM employee_demographics;
-
-
-SELECT first_name, LEFT(first_name, 4)
-FROM employee_demographics;
-
-SELECT first_name, SUBSTRING(first_name, 3,2), SUBSTRING(birth_date, 6,2)
-FROM employee_demographics;
-
-
-SELECT first_name, REPLACE (first_name, 'a', 'z')
-FROM employee_demographics;
-
-
-SELECT first_name, LOCATE('An', first_name)
-FROM employee_demographics;
-
-
-SELECT first_name, last_name,
-CONCAT(first_name,' ',last_name) AS full_name
-FROM employee_demographics;
-
 
 
 SELECT first_name, 
@@ -308,8 +90,6 @@ WHERE employee_id IN
                        FROM employee_salary
                        WHERE dept_id = 1)
 ;
-
-
 
 
 
