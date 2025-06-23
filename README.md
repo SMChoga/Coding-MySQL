@@ -1,9 +1,9 @@
-#Employee Analysis
+# Employee Analysis
 
-###Project Overview
+### Project Overview
 
-###Data Source
+### Data Source
 
-###Tools
+### Tools
 
-###Data Cleaning/Preparation
+### Data Cleaning/Preparation
