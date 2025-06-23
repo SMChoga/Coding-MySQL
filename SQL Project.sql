@@ -14,38 +14,38 @@ Select distinct gender
 From employee_demographics;
 
 Select *
-From employee_demographics
-Where first_name = 'leslie';
+   From employee_demographics
+     Where first_name = 'leslie';
 
 Select *
-From employee_salary
-Where salary > 50000;
+   From employee_salary
+       Where salary > 50000;
 
 Select *
-From employee_demographics
-Where gender = 'Female';
+    From employee_demographics
+        Where gender = 'Female';
 
 Select *
-From employee_demographics
-Where birth_date > '1985-01-01';
-
-
-Select *
-From employee_demographics
-Where (gender = 'male' or birth_date >'1985-01-01');
+    From employee_demographics
+        Where birth_date > '1985-01-01';
 
 
 Select *
-From employee_demographics
-Where (first_name = 'Leslie' and age = 44) or age > 55;
+    From employee_demographics
+       Where (gender = 'male' or birth_date >'1985-01-01');
+
 
 Select *
-From employee_demographics
-Where first_name like 'Jer%';
+  From employee_demographics
+    Where (first_name = 'Leslie' and age = 44) or age > 55;
 
 Select *
-From employee_demographics
-Where first_name like 'A__';
+  From employee_demographics
+     Where first_name like 'Jer%';
+
+Select *
+  From employee_demographics
+     Where first_name like 'A__';
 
 
 Select gender
@@ -71,16 +71,16 @@ From employee_demographics
 Order by gender, age;
 
 Select gender, avg(age)
-From employee_demographics
-Group by gender
-Having avg(age)>40;
+  From employee_demographics
+    Group by gender
+       Having avg(age)>40;
 
 
 Select occupation, avg(salary)
-From employee_salary
-Where occupation like '%manager%'
-Group by occupation
-Having avg(salary)>40;
+  From employee_salary
+     Where occupation like '%manager%'
+       Group by occupation
+          Having avg(salary)>40;
 
 Select*
 From employee_demographics
@@ -91,18 +91,18 @@ From employee_demographics
 Limit 2,1;
 
 Select dem.employee_id, dem.age, sal.occupation
- From employee_demographics dem
-  Inner join employee_salary sal
-    On dem.employee_id = sal.employee_id
-        ;
+  From employee_demographics dem
+     Inner join employee_salary sal
+        On dem.employee_id = sal.employee_id
+           ;
 
 
 Select*
- From employee_demographics dem
-  Inner join employee_salary sal
-    On dem.employee_id = sal.employee_id
-       Inner join parks_departments pr
-             on sal.dept_id = pr.department_id;
+  From employee_demographics dem
+    Inner join employee_salary sal
+       On dem.employee_id = sal.employee_id
+          Inner join parks_departments pr
+              on sal.dept_id = pr.department_id;
 
 Select*
 From parks_departments;
@@ -113,33 +113,33 @@ From employee_salary;
 
 
 Select first_name, last_name
-From employee_demographics
-Union
-Select first_name, last_name
-From employee_salary
-;
+  From employee_demographics
+     Union
+        Select first_name, last_name
+            From employee_salary
+               ;
 
 Select first_name, last_name
-From employee_demographics
-Union all
-Select first_name, last_name
-From employee_salary
-;
+    From employee_demographics
+        Union all
+            Select first_name, last_name
+                From employee_salary
+                   ;
 
 
 Select first_name, last_name
-From employee_demographics
-Where (age > 40 and gender = 'Male')
-Union 
-Select first_name, last_name
-From employee_demographics
-Where (age > 40 and gender = 'Female')
-Union 
-Select first_name, last_name
-From employee_salary
-where salary > 70000
-Order by first_name
-;
+    From employee_demographics
+        Where (age > 40 and gender = 'Male')
+             Union 
+                Select first_name, last_name
+                   From employee_demographics
+                      Where (age > 40 and gender = 'Female')
+                            Union 
+                               Select first_name, last_name
+                                   From employee_salary
+                                        where salary > 70000
+                                            Order by first_name
+                                                      ;
 
 Select upper(first_name), lower(first_name)
 From employee_demographics;
@@ -158,19 +158,19 @@ From employee_demographics;
 
 Select*,
 Case
- When age < 30 then 'Young'
- When age between 31 and 50 then 'Old'
- When age > 51  then 'Really Old'
+    When age < 30 then 'Young'
+       When age between 31 and 50 then 'Old'
+           When age > 51  then 'Really Old'
 End As Age_Groups
 From employee_demographics;
 
 Select*,
 Case
- When salary <50000 then salary+(salary*0.05)
- When salary >50000 then salary+(salary*0.07)
+   When salary <50000 then salary+(salary*0.05)
+        When salary >50000 then salary+(salary*0.07)
 End As Increas,
 Case
-When dept_id = 6 then salary+(salary*0.10)  
+  When dept_id = 6 then salary+(salary*0.10)  
 End As Bonus
 From employee_salary;
 
@@ -183,10 +183,10 @@ Select*
 
 
 Select gender, avg(salary) as Salary
- From employee_demographics dem
-  Inner join employee_salary sal
-    On dem.employee_id = sal.employee_id
-      Group by gender;
+  From employee_demographics dem
+    Inner join employee_salary sal
+       On dem.employee_id = sal.employee_id
+          Group by gender;
 
 
 Select  dem.first_name, dem.last_name, dem.gender, Avg(salary) Over(Partition by gender) as Salary
@@ -244,25 +244,25 @@ From salary_over_50k;
 
 
 Delimiter $$
-Create procedure large_salaries()
-Begin
-Select*
-From employee_salary
-Where salary >50000;
-End $$
-Delimiter ;
+   Create procedure large_salaries()
+      Begin
+         Select*
+             From employee_salary 
+                Where salary >50000;
+                   End $$
+                     Delimiter ;
 
 Call large_salaries;
 
 Delimiter $$
-Create Trigger insert_employee
-After Insert On employee_salary
-For Each Row
-Begin
-INSERT INTO employee_demographics (employee_id, first_name, last_name)
-VALUES (NEW.employee_id, NEW.first_name, NEW.last_name);
-End $$
-Delimiter ;
+   Create Trigger insert_employee
+      After Insert On employee_salary
+          For Each Row
+             Begin
+                INSERT INTO employee_demographics (employee_id, first_name, last_name)
+                   VALUES (NEW.employee_id, NEW.first_name, NEW.last_name);
+                        End $$
+                           Delimiter ;
 
 
 INSERT INTO employee_salary (employee_id, first_name, last_name, occupation, salary, dept_id)
@@ -458,14 +458,14 @@ Delimiter ;
 Call Employment_Demo;
 
 Delimiter $$
-Create Trigger employee_insert2
-After Insert On employee_salary
-For Each Row
-Begin
-INSERT INTO employee_demographics (employee_id, first_name, last_name)
-VALUES (NEW.employee_id, NEW.first_name, NEW.last_name);
-End $$
-Delimiter ;
+   Create Trigger employee_insert2
+      After Insert On employee_salary
+         For Each Row
+             Begin
+                INSERT INTO employee_demographics (employee_id, first_name, last_name)
+                    VALUES (NEW.employee_id, NEW.first_name, NEW.last_name); 
+                        End $$
+                           Delimiter ;
 
 INSERT INTO employee_salary (employee_id, first_name, last_name, occupation, salary, dept_id)
 VALUES(13, 'Jean-Ralphio','Saperstein','Entertainment 720 CEO',1000000,NULL);
