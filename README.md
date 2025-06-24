@@ -43,7 +43,7 @@ The analysis results are summarized as follows:
 ### Limitations
 
 ### References
-[Alex the Analyst - YouTube Channel] (https://www.youtube.com/watch?v=OT1RErkfLNQ&list=PL9PrwgRNlv62OiqVlASto1N4cAQRg60dr&index=22&pp=gAQBiAQB)
+[Alex the Analyst - YouTube Channel](https://www.youtube.com/watch?v=OT1RErkfLNQ&list=PL9PrwgRNlv62OiqVlASto1N4cAQRg60dr&index=22&pp=gAQBiAQB)
 
 
 
