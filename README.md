@@ -1,6 +1,13 @@
 # Employee Analysis
 
-
+##Table of Contents
+- [Project Overview](#project-overview)
+- [Data Source](#data-source)
+- [Tools](#tools)
+- [Data Cleaning/Preparation](#data-cleaning/preparation)
+- [Data Analysis](#data-analysis)
+- [Results/Findings](#results-findings)
+- [References](#references)
 
 ### Project Overview
 This project involves performing end-to-end SQL-based data analysis (employee_demographics, employee_salary, and layoffs). The aim is to demonstrate SQL proficiency in data cleaning, exploratory analysis, aggregations, joins, subqueries, and window functions to uncover trends and make informed recommendations.
