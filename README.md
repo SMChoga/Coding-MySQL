@@ -9,6 +9,7 @@ This project involves performing end-to-end SQL-based data analysis (employee_de
 #### Beginner-Parks_and_Rec_Create
 - Employee_Demographics: Contains employee ID, names, birth dates, gender, and age.
 - Employee_Salary: Includes employee ID, salary, occupation, and department ID.
+#### Layoffs.csv
 - Layoffs: Contains global tech layoff data, including company, industry, country, funding, and layoff metrics.
 
 ### Tools
