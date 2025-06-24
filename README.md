@@ -22,7 +22,7 @@ This project involves performing end-to-end SQL-based data analysis (employee_de
 ### Tools
 SQL for data analysis
 
-### Data Cleaning/Preparation
+### Data Cleaning
 - Removed duplicates using ROW_NUMBER() in both layoffs and layoffs_stage tables.
 - Standardized data entries using:
 - TRIM() to remove trailing whitespaces from company and country.
@@ -57,7 +57,7 @@ Update layoffs_stage2 dem
                ;
 ```
 
-### Results/Findings
+### Results
 The analysis results are summarized as follows:
 - The average salary for male employees is higher than for female employees across departments.
 - Certain high-paying occupations (e.g., managers and CEOs) are concentrated in a few departments.
