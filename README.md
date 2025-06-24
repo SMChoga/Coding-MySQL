@@ -54,17 +54,6 @@ The analysis results are summarized as follows:
 - In the layoff dataset, many entries had missing or inconsistent industry, date, and company values.
 - Duplicate entries were common in the layoff dataset, but successfully removed using window functions.
 
-### Recommendations
-- Implement stricter data entry validation for fields like industry, date, and country.
-- Use automated triggers to ensure demographic records are always added when a new salary record is inserted.
-- Monitor departments with higher average salaries to ensure compensation equity.
-- For layoffs data, track industry and funding changes over time to forecast at-risk companies.
-
-### Limitations
-- The data did not include key HR metrics such as years of experience or performance ratings.
-- Layoffs dataset may contain external inconsistencies beyond cleaning (e.g., underreported figures).
-- Some assumptions (e.g., salary increment logic) were hypothetical without HR policy documentation.
-- Missing values had to be handled with assumptions (e.g., null industries inferred from other rows).
 
 ### References
 [Alex the Analyst - YouTube Channel](https://www.youtube.com/watch?v=OT1RErkfLNQ&list=PL9PrwgRNlv62OiqVlASto1N4cAQRg60dr&index=22&pp=gAQBiAQB)
