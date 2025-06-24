@@ -34,6 +34,18 @@ Update layoffs_stage2 dem
                ;
 ```
 
+### Results/Findings
+The analysis results are summarized as follows:
+
+
+### Recommendations
+
+### Limitations
+
+### References
+[Alex the Analyst - YouTube Channel] (https://www.youtube.com/watch?v=OT1RErkfLNQ&list=PL9PrwgRNlv62OiqVlASto1N4cAQRg60dr&index=22&pp=gAQBiAQB)
+
+
 
 
 
