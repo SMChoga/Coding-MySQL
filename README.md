@@ -7,3 +7,19 @@
 ### Tools
 
 ### Data Cleaning/Preparation
+
+### Exploratory Data Analysis
+
+### Data Analysis
+```sql
+
+
+
+```
+
+
+
+
+
+
+
