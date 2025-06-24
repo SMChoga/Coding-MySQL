@@ -11,6 +11,7 @@
 ### Exploratory Data Analysis
 
 ### Data Analysis
+Include interesting code/features worked with
 ```sql
 Select distinct industry
 From layoffs_stage2
