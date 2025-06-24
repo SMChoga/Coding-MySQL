@@ -12,9 +12,25 @@
 
 ### Data Analysis
 ```sql
+Select distinct industry
+From layoffs_stage2
+Order by 1;
 
+Select dem.company, dem.industry, sal.company, sal.industry
+ From layoffs_stage2 dem
+   Inner Join layoffs_stage2 sal
+     On dem.company = sal.company
+       Where (dem.industry = '' or dem.industry IS Null)
+		  And sal.industry IS NOT Null
+             ;
 
-
+Update layoffs_stage2 dem
+  Inner Join layoffs_stage2 sal
+     On dem.company = sal.company
+       Set dem.industry = sal.company
+       Where (dem.industry = '' or dem.industry IS Null)
+		  And sal.industry IS NOT Null
+               ;
 ```
 
 
